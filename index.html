@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tarot Training — タロット・リーディング練習アプリ</title>
+  <meta name="description" content="オフラインで使えるタロット練習アプリ。78枚のカードガイド、暗記クイズ、スプレッド実践、ブラウザ内のリーディングコーチ。">
+  <meta name="theme-color" content="#07091a">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tarot Training">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><h1 class="wordmark"><img src="wordmark.png" alt="Tarot Training" width="900" height="223"></h1></div>
+    <div class="header-actions">
+      <button id="langBtn" class="btn btn-small ghost" type="button" data-i18n-aria="lang.aria"><span aria-hidden="true">🌐</span> <span id="langLabel">日本語</span></button>
+      <button id="installBtn" class="btn btn-small" type="button" data-i18n="install" hidden>アプリをインストール</button>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1" aria-live="polite"></main>
+
+  <nav class="tabbar" aria-label="メイン">
+    <button type="button" class="tab" data-tab="guide"><span class="tab-ico" aria-hidden="true"><img src="icons/menu-guide.webp" alt=""></span><span data-i18n="tab.guide">Guide</span></button>
+    <button type="button" class="tab" data-tab="quiz"><span class="tab-ico" aria-hidden="true"><img src="icons/menu-quiz.webp" alt=""></span><span data-i18n="tab.quiz">Quiz</span></button>
+    <button type="button" class="tab" data-tab="expand"><span class="tab-ico" aria-hidden="true"><img src="icons/menu-spread.webp" alt=""></span><span data-i18n="tab.expand">Spread</span></button>
+  </nav>
+
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-grab" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <h2 id="sheetTitle"></h2>
+        <button type="button" class="icon-btn" data-close data-i18n-aria="close" aria-label="閉じる">✕</button>
+      </div>
+      <div id="sheetBody" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript><p class="noscript">Tarot Training の利用には JavaScript が必要です。 / Tarot Training needs JavaScript to run.</p></noscript>
+
+  <script src="data/cards.js"></script>
+  <script src="data/cards.ja.js"></script>
+  <script src="data/spreads.js"></script>
+  <script src="i18n.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
